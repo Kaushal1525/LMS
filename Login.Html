@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #2563eb; /* Tailwind blue-600 */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96" id="login-container">
+        <div class="flex justify-center mb-4">
+            <img alt="Document icon" class="w-12 h-12" src="https://storage.googleapis.com/a1aa/image/JfT8Jgn6Wvx9CaPM2ftI1uXVICL9owEU6WPr7famleoht5LOB.jpg" />
+        </div>
+        <h2 class="text-2xl font-bold text-center mb-6">Hey there! Welcome back.</h2>
+        <div class="mb-4">
+            <input id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Email" type="email" value="kaushaljammula19@gmail.com" required />
+        </div>
+        <div class="mb-4">
+            <input id="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter your password" type="password" value="1230" required />
+        </div>
+        <div class="mb-6 text-right">
+            <a class="text-blue-600 hover:underline" href="#">Forgot Password?</a>
+        </div>
+        <button id="loginButton" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            LOGIN
+        </button>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const username = document.getElementById('email').value; // Getting the email as username
+            // Redirect to welcome page with the username as a query parameter
+            window.location.href = `welcome.html?username=${encodeURIComponent(username)}`;
+        });
+    </script>
+</body>
+</html>

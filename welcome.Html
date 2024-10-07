@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #2563eb; /* Tailwind blue-600 */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="welcome-container bg-white p-8 rounded-lg shadow-lg w-96">
+        <h1 class="text-2xl font-bold text-center mb-4">Welcome!</h1>
+        <p class="text-center">Hello, <strong id="username-display"></strong>. You have successfully logged in.</p>
+        <a href="#" id="logoutButton" class="block text-center mt-4 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700">
+            Log out
+        </a>
+    </div>
+
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Display the username from the URL parameter
+        const username = getQueryParameter('username');
+        document.getElementById('username-display').textContent = username;
+
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            // Redirect back to the login page
+            window.location.href = 'login.html'; // Navigate to the login page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page with Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            margin-left: 30px;
+        }
+        .navbar a.button {
+            background-color: #0072ce;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .navbar a.button:hover {
+            background-color: #005aa7;
+        }
+        .navbar .login {
+            background-color: #ffffff;
+            color: #0072ce;
+            padding: 8px 15px;
+            border: 1px solid #0072ce;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .navbar .login:hover {
+            background-color: #0072ce;
+            color: white;
+        }
+        /* Main Section */
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #f8f9fa;
+        }
+        .main-text {
+            max-width: 50%;
+        }
+        .main-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #333;
+        }
+        .main-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .main-text button {
+            background-color: #0072ce;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .main-text button:hover {
+            background-color: #005aa7;
+        }
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .carousel-controls div {
+            height: 10px;
+            width: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .carousel-controls div.active {
+            background-color: #0072ce;
+        }
+        /* Explore Programs Section */
+        .explore-section {
+            padding: 50px;
+            background-color: #f8f9fa;
+        }
+        .explore-section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 50px;
+        }
+        .program-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .program-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .program-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #0072ce;
+        }
+        .program-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .program-card button {
+            background-color: #0072ce;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .program-card button:hover {
+            background-color: #005aa7;
+        }
+        /* Modal Style */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .modal-content img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .modal-content input[type="email"], 
+        .modal-content input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .modal-content button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0072ce;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .modal-content button:hover {
+            background-color: #005aa7;
+        }
+        .modal-content a {
+            color: #ff6f61;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+        /* Welcome Section */
+        .welcome-section {
+            display: none;
+            padding: 50px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .welcome-section h1 {
+            font-size: 48px;
+            color: #333;
+        }
+        .welcome-section p {
+            font-size: 24px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div>
+            <a href="#">Explore Programs</a>
+            <a href="#">Student</a>
+            <a href="#">Faculty</a>
+            <a href="#" class="button">For Faculty</a>
+        </div>
+        <div>
+            <span class="login" id="loginBtn">Login</span>
+        </div>
+    </div>
+
+    <!-- Main Section -->
+    <div class="main">
+        <div class="main-text">
+            <h1>India's trusted education platform</h1>
+            <p>Power ahead in your career with certificate courses & degrees from world-class universities.</p>
+            <a href="#explore-programs"><button>Explore Programs</button></a>
+        </div>
+        <div class="carousel-controls">
+            <div class="active"></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Explore Programs Section -->
+    <div id="explore-programs" class="explore-section">
+        <h2>Explore Our Programs</h2>
+        <div class="program-list">
+            <div class="program-card">
+                <h3>Certifications</h3>
+                <p>Get industry-recognized certifications to boost your career. Courses designed by experts.</p>
+                <button>View Details</button>
+            </div>
+            <div class="program-card">
+                <h3>Course Listings</h3>
+                <p>Explore our vast library of courses in various fields like IT, Data Science, AI, and more.</p>
+                <button>View Courses</button>
+            </div>
+            <div class="program-card">
+                <h3>Career Pathways</h3>
+                <p>Follow personalized learning paths to advance your career and gain new skills.</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <img src="https://storage.googleapis.com/a1aa/image/JfT8Jgn6Wvx9CaPM2ftI1uXVICL9owEU6WPr7famleoht5LOB.jpg" alt="Document icon" class="w-12 h-12" />
+            <h2 class="text-2xl font-bold mb-4">Login</h2>
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button id="loginSubmit">Login</button>
+            <a href="#" class="text-sm">Forgot Password?</a>
+        </div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section" id="welcomeSection">
+        <h1>Welcome, <span id="userName"></span>!</h1>
+        <p>You have successfully logged in.</p>
+    </div>
+
+    <script>
+        // Get elements
+        const loginModal = document.getElementById('loginModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const closeModal = document.getElementById('closeModal');
+        const loginSubmit = document.getElementById('loginSubmit');
+        const userNameDisplay = document.getElementById('userName');
+        const welcomeSection = document.getElementById('welcomeSection');
+
+        // Open modal
+        loginBtn.onclick = function() {
+            loginModal.style.display = 'flex';
+        }
+
+        // Close modal
+        closeModal.onclick = function() {
+            loginModal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        }
+
+        // Handle login
+        loginSubmit.onclick = function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simple login logic
+            if (email === "user@example.com" && password === "password") {
+                userNameDisplay.textContent = "User"; // Replace with dynamic username as needed
+                loginModal.style.display = 'none';
+                welcomeSection.style.display = 'block';
+            } else {
+                alert("Invalid email or password");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Explore Programs</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            margin-left: 30px;
+        }
+        .navbar a.button {
+            background-color: #0072ce;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .navbar a.button:hover {
+            background-color: #005aa7;
+        }
+        .navbar .login {
+            background-color: #ffffff;
+            color: #0072ce;
+            padding: 8px 15px;
+            border: 1px solid #0072ce;
+            border-radius: 5px;
+        }
+        .navbar .login:hover {
+            background-color: #0072ce;
+            color: white;
+        }
+
+        /* Explore Programs Section */
+        .explore-section {
+            padding: 50px;
+            background-color: #f8f9fa;
+        }
+        .explore-section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 50px;
+        }
+        .program-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .program-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .program-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #0072ce;
+        }
+        .program-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .program-card button {
+            background-color: #0072ce;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .program-card button:hover {
+            background-color: #005aa7;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .program-card {
+                width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .program-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Certifications</a>
+            <a href="#">Live Sessions</a>
+            <a href="#" class="button">Contact Us</a>
+        </div>
+        <div>
+            <a href="#" class="login">Login</a>
+        </div>
+    </div>
+
+    <!-- Explore Programs Section -->
+    <div class="explore-section">
+        <h2>Explore Our Programs</h2>
+        <div class="program-list">
+            <!-- Program 1: Certifications -->
+            <div class="program-card">
+                <h3>Certifications</h3>
+                <p>Get industry-recognized certifications to boost your career. Courses designed by experts.</p>
+                <button>View Details</button>
+            </div>
+
+            <!-- Program 2: Course Listings -->
+            <div class="program-card">
+                <h3>Course Listings</h3>
+                <p>Explore our vast library of courses in various fields like IT, Data Science, AI, and more.</p>
+                <button>View Courses</button>
+            </div>
+
+            <!-- Program 3: Career Pathways -->
+            <div class="program-card">
+                <h3>Career Pathways</h3>
+                <p>Follow personalized learning paths to advance your career and gain new skills.</p>
+                <button>Learn More</button>
+            </div>
+
+            <!-- Program 4: Live Sessions -->
+            <div class="program-card">
+                <h3>Live Sessions</h3>
+                <p>Join live sessions with instructors and peers to discuss real-world scenarios and projects.</p>
+                <button>View Schedule</button>
+            </div>
+
+            <!-- Program 5: Project-Based Learning -->
+            <div class="program-card">
+                <h3>Project-Based Learning</h3>
+                <p>Work on real-world projects to develop hands-on skills and showcase them in your portfolio.</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
